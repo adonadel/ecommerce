@@ -8,7 +8,8 @@ import { CategoriaFormComponent } from './categoria/categoria-form/categoria-for
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    redirectTo: 'home',
+    pathMatch: 'full'
 
   },
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: CategoriaListarComponent
+        redirectTo: 'listar',
+        pathMatch: 'full'
       },
       {
         path: 'listar',
