@@ -12,6 +12,7 @@ import { CategoriaListarComponent } from './categoria/categoria-listar/categoria
 import { CategoriaFormComponent } from './categoria/categoria-form/categoria-form.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
       appId: "1:382890108062:web:37d19810b1eeeb9fd6078f",
       measurementId: "G-H9SE6Y623M"
     }),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

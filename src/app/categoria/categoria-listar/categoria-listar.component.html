@@ -21,27 +21,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let categoria of dados">
                 <th scope="row">1</th>
-                <td>Eletrônico</td>
-                <td><i class="bx bxs-pencil" title="Editar"></i></td>
-                <td><i class="bx bxs-trash" title="Excluir"></i></td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Computadores</td>
-                <td><i class="bx bxs-pencil" title="Editar"></i></td>
-                <td><i class="bx bxs-trash" title="Excluir"></i></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Celulares</td>
-                <td><i class="bx bxs-pencil" title="Editar"></i></td>
-                <td><i class="bx bxs-trash" title="Excluir"></i></td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Casa</td>
+                <td>{{categoria.nome}}</td>
                 <td><i class="bx bxs-pencil" title="Editar"></i></td>
                 <td><i class="bx bxs-trash" title="Excluir"></i></td>
             </tr>
