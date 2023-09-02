@@ -33,6 +33,10 @@ const routes: Routes = [
       {
         path: 'adicionar',
         component: CategoriaFormComponent
+      },
+      {
+        path: 'editar/:indice',
+        component: CategoriaFormComponent,
       }
     ]
   }

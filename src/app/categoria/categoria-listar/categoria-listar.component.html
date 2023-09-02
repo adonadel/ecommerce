@@ -1,17 +1,14 @@
 <div>
     <div class="row">
         <div class="col-3">
-            <h2>Categoria</h2>
+            <h2>Categorias</h2>
         </div>
         <div class="col-2 offset-7">
             <button class="btn btn-success" routerLink="../adicionar">Novo</button>
         </div>
     </div>
 
-    <h5 class="card-title">Table with stripped rows</h5>
-
     <table class="table table-striped">
-        <caption>Categoria</caption>
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -21,11 +18,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let categoria of dados">
-                <th scope="row">1</th>
+            <tr *ngFor="let categoria of dados;">
+                <th scope="row">{{categoria.id}}</th>
                 <td>{{categoria.nome}}</td>
-                <td><i class="bx bxs-pencil" title="Editar"></i></td>
-                <td><i class="bx bxs-trash" title="Excluir"></i></td>
+                <td><i class="bx bxs-pencil" title="Editar" (click)="editar(categoria.indice)"></i></td>
+                <td><i class="bx bxs-trash" title="Excluir" (click)="excluir(categoria.indice)"></i></td>
             </tr>
         </tbody>
     </table>

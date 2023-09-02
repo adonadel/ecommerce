@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, numberAttribute } from '@angular/core';
 import { FirebaseService } from '../firebase.service';
 
 @Injectable({
@@ -20,5 +20,13 @@ export class CategoriaService {
 
   listar() {
     return this.ref();
+  }
+  
+  excluir(indice:string){
+    this.ref().child('/' + indice).remove().then();
+  }
+  
+  editar(dados:any, indice:string) {
+    this.ref().child('/' + indice).update(dados).then();
   }
 }
