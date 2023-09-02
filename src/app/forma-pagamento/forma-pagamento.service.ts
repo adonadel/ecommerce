@@ -4,14 +4,14 @@ import { FirebaseService } from '../firebase.service';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriaService {
+export class FormaPagamentoService {
 
   constructor(
     public firebase_service:FirebaseService
   ) { }
 
   ref() {
-    return this.firebase_service.ref().child('/categoria');
+    return this.firebase_service.ref().child('/forma-pagamento');
   }
 
   salvar(dados : any) {

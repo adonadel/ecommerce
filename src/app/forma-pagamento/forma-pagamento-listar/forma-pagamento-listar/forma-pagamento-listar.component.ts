@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoriaService } from '../categoria.service';
+import { FormaPagamentoService } from '../../forma-pagamento.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-categoria-listar',
-  templateUrl: './categoria-listar.component.html',
-  styleUrls: ['./categoria-listar.component.scss']
+  selector: 'app-forma-pagamento-listar',
+  templateUrl: './forma-pagamento-listar.component.html',
+  styleUrls: ['./forma-pagamento-listar.component.scss']
 })
-export class CategoriaListarComponent implements OnInit{
+export class FormaPagamentoListarComponent implements OnInit{
   public dados:Array<any> = [];
 
   constructor(
-    public categoria_service:CategoriaService,
+    public formaPagamento_service:FormaPagamentoService,
     public router:Router
   ) { }
 
   ngOnInit(): void {
-    this.categoria_service.listar()
+    this.formaPagamento_service.listar()
     .on('value',(snapshot:any) => {
 
       this.dados.splice(0,this.dados.length);
@@ -40,11 +40,11 @@ export class CategoriaListarComponent implements OnInit{
 
   excluir(key:string, nome:string) {
     if(confirm("Deseja realmente excluir a forma de pagamento \"" + nome + "\"?")) {
-      this.categoria_service.excluir(key);
+      this.formaPagamento_service.excluir(key);
     }
   }
 
   editar(key:string) {
-    this.router.navigate(['/categoria/editar/' + key]);
+    this.router.navigate(['/forma-pagamento/editar/' + key]);
   }
 }
