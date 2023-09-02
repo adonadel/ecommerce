@@ -13,6 +13,9 @@ import { CategoriaFormComponent } from './categoria/categoria-form/categoria-for
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { FormsModule } from '@angular/forms';
+import { FormaPagamentoComponent } from './forma-pagamento/forma-pagamento.component';
+import { FormaPagamentoListarComponent } from './forma-pagamento/forma-pagamento-listar/forma-pagamento-listar/forma-pagamento-listar.component';
+import { FormaPagamentoFormComponent } from './forma-pagamento/forma-pagamento-form/forma-pagamento-form/forma-pagamento-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     CategoriaComponent,
     CategoriaListarComponent,
-    CategoriaFormComponent
+    CategoriaFormComponent,
+    FormaPagamentoComponent,
+    FormaPagamentoListarComponent,
+    FormaPagamentoFormComponent
   ],
   imports: [
     BrowserModule,
