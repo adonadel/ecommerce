@@ -16,6 +16,12 @@ import { FormsModule } from '@angular/forms';
 import { FormaPagamentoComponent } from './forma-pagamento/forma-pagamento.component';
 import { FormaPagamentoListarComponent } from './forma-pagamento/forma-pagamento-listar/forma-pagamento-listar/forma-pagamento-listar.component';
 import { FormaPagamentoFormComponent } from './forma-pagamento/forma-pagamento-form/forma-pagamento-form/forma-pagamento-form.component';
+import { SubCategoriaComponent } from './sub-categoria/sub-categoria.component';
+import { SubCategoriaListarComponent } from './sub-categoria/sub-categoria-listar/sub-categoria-listar.component';
+import { SubCategoriaFormComponent } from './sub-categoria/sub-categoria-form/sub-categoria-form.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { UsuarioFormComponent } from './usuario/usuario-form/usuario-form.component';
+import { UsuarioListarComponent } from './usuario/usuario-listar/usuario-listar.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +35,13 @@ import { FormaPagamentoFormComponent } from './forma-pagamento/forma-pagamento-f
     CategoriaFormComponent,
     FormaPagamentoComponent,
     FormaPagamentoListarComponent,
-    FormaPagamentoFormComponent
+    FormaPagamentoFormComponent,
+    SubCategoriaComponent,
+    SubCategoriaListarComponent,
+    SubCategoriaFormComponent,
+    UsuarioComponent,
+    UsuarioFormComponent,
+    UsuarioListarComponent
   ],
   imports: [
     BrowserModule,

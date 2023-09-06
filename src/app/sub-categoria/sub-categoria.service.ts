@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import { FirebaseService } from '../firebase.service';
+import {FirebaseService} from "../firebase.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriaService {
+export class SubCategoriaService {
 
   constructor(
     public firebase_service:FirebaseService
   ) { }
 
   ref() {
-    return this.firebase_service.ref().child('/categoria');
+    return this.firebase_service.ref().child('/sub-categoria');
   }
 
   salvar(dados : any) {
@@ -28,9 +28,5 @@ export class CategoriaService {
 
   editar(dados:any, indice:string) {
     this.ref().child('/' + indice).update(dados).then();
-  }
-
-  getByIndice(indice:string) {
-    return this.ref().child('/' + indice);
   }
 }

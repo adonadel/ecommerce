@@ -29,7 +29,12 @@ export class FormaPagamentoFormComponent {
     });
   }
   salvar() {
-    
+    if(this.nome == '') {
+      document.querySelector('#nome')?.classList.add('has-errors');
+      document.querySelector('#nome')?.setAttribute('tooltip', 'true');
+      return;
+    }
+
     if(this.indice === '') {
       this.formaPagamento_service.salvar({
         id : this.nextId > 0 ? this.nextId : 1,
@@ -44,10 +49,10 @@ export class FormaPagamentoFormComponent {
     this.router.navigate(['/forma-pagamento']);
   }
 
-  ngOnInit(): void {  
+  ngOnInit(): void {
     this.formaPagamento_service.listar()
     .on('value',(snapshot:any) => {
-      
+
       let response = snapshot.val();
 
       if (response == null) return;

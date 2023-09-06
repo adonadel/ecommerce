@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-between">
+    <h2>Usuário</h2>
+    <button class="btn btn-primary" routerLink="/usuario">Listar</button>
+</div>
+<form class="row g-3">
+    <div class="col-12">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" [(ngModel)] = "nome" name="nome">
+    </div>
+    <div class="col-12">
+        <label for="nome" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)] = "email" name="email">
+    </div>
+    <div class="col-12">
+        <label for="nome" class="form-label">senha</label>
+        <input type="password" class="form-control" id="password" [(ngModel)] = "password" name="password">
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-success" (click)="salvar()">Salvar</button>
+    </div>
+</form>
