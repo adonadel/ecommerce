@@ -7,6 +7,12 @@ import { CategoriaFormComponent } from './categoria/categoria-form/categoria-for
 import { FormaPagamentoListarComponent } from './forma-pagamento/forma-pagamento-listar/forma-pagamento-listar/forma-pagamento-listar.component';
 import { FormaPagamentoFormComponent } from './forma-pagamento/forma-pagamento-form/forma-pagamento-form/forma-pagamento-form.component';
 import { FormaPagamentoComponent } from './forma-pagamento/forma-pagamento.component';
+import {SubCategoriaComponent} from "./sub-categoria/sub-categoria.component";
+import {SubCategoriaListarComponent} from "./sub-categoria/sub-categoria-listar/sub-categoria-listar.component";
+import {SubCategoriaFormComponent} from "./sub-categoria/sub-categoria-form/sub-categoria-form.component";
+import {UsuarioComponent} from "./usuario/usuario.component";
+import {UsuarioListarComponent} from "./usuario/usuario-listar/usuario-listar.component";
+import {UsuarioFormComponent} from "./usuario/usuario-form/usuario-form.component";
 
 const routes: Routes = [
   {
@@ -65,7 +71,53 @@ const routes: Routes = [
         component: FormaPagamentoFormComponent,
       }
     ]
-  }
+  },
+  {
+    path: 'sub-categoria',
+    component: SubCategoriaComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'listar',
+        pathMatch: 'full'
+      },
+      {
+        path: 'listar',
+        component: SubCategoriaListarComponent
+      },
+      {
+        path: 'adicionar',
+        component: SubCategoriaFormComponent
+      },
+      {
+        path: 'editar/:indice',
+        component: SubCategoriaFormComponent,
+      }
+    ]
+  },
+  {
+    path: 'usuario',
+    component: UsuarioComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'listar',
+        pathMatch: 'full'
+      },
+      {
+        path: 'listar',
+        component: UsuarioListarComponent
+      },
+      {
+        path: 'adicionar',
+        component: UsuarioFormComponent
+      },
+      {
+        path: 'editar/:indice',
+        component: UsuarioFormComponent,
+      }
+    ]
+  },
 ];
 
 @NgModule({

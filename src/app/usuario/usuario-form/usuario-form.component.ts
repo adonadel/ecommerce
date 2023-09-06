@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
-import { CategoriaService } from '../categoria.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import {UsuarioService} from "../usuario.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
-  selector: 'app-categoria-form',
-  templateUrl: './categoria-form.component.html',
-  styleUrls: ['./categoria-form.component.scss']
+  selector: 'app-usuario-form',
+  templateUrl: './usuario-form.component.html',
+  styleUrls: ['./usuario-form.component.scss']
 })
-export class CategoriaFormComponent {
+export class UsuarioFormComponent {
   public nome:string = '';
+  public email:string = '';
+  public password:string = '';
   public indice:string = '';
   public nextId:number = 0;
 
   constructor(
-    public categoria_service:CategoriaService,
+    public usuario_service:UsuarioService,
     public activated_route:ActivatedRoute,
     public router:Router
   ) {
@@ -21,10 +23,12 @@ export class CategoriaFormComponent {
       if(params.indice === undefined)
         return;
 
-      this.categoria_service.ref().child('/' + params.indice).on('value', (snapshot:any) => {
+      this.usuario_service.ref().child('/' + params.indice).on('value', (snapshot:any) => {
         let dado:any = snapshot.val();
         this.indice = params.indice;
         this.nome = dado.nome;
+        this.email = dado.email;
+        this.password = dado.password;
       });
     });
   }
@@ -37,21 +41,25 @@ export class CategoriaFormComponent {
     }
 
     if(this.indice === '') {
-      this.categoria_service.salvar({
+      this.usuario_service.salvar({
         id : this.nextId > 0 ? this.nextId : 1,
-        nome : this.nome
+        nome : this.nome,
+        email : this.email,
+        password : this.password
       })
     }else {
       let dados = {
-        nome:this.nome
+        nome:this.nome,
+        email : this.email,
+        password : this.password
       };
-      this.categoria_service.editar(dados, this.indice);
+      this.usuario_service.editar(dados, this.indice);
     }
-    this.router.navigate(['/categoria']);
+    this.router.navigate(['/usuario']);
   }
 
   ngOnInit(): void {
-    this.categoria_service.listar()
+    this.usuario_service.listar()
     .on('value',(snapshot:any) => {
 
       let response = snapshot.val();
@@ -65,4 +73,5 @@ export class CategoriaFormComponent {
       );
     });
   }
+
 }
