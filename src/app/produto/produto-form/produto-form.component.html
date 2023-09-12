@@ -12,19 +12,41 @@
         <input type="number" class="form-control" id="preco" [(ngModel)] = "preco" name="preco">
     </div>
     <div class="col-12">
-        <label for="nome" class="form-label">Nome</label>
+        <label for="nome" class="form-label">Descrição</label>
         <textarea class="form-control" id="descricao" [(ngModel)] = "descricao" name="descricao"></textarea>
     </div>
     <div class="col-12">
       <label class="form-label" for="categoria-id">Categoria</label>
-      <select name="categoria_id" class="form-control" [(ngModel)] = "categoria_id" id="categoria-id">
+      <select
+        name="categoria_id"
+        class="form-control"
+        [(ngModel)] = "categoria_id"
+        id="categoria-id"
+        (change)="listarSubcategoria(categoria_id)"
+      >
         <option value="">Selecionar categoria</option>
+        <option
+          *ngFor="let categoria of categorias"
+          [value]="categoria.indice"
+          [innerHTML]="categoria.nome"
+        ></option>
       </select>
     </div>
     <div class="col-12">
       <label class="form-label" for="subcategoria-id">Sub categoria</label>
-      <select name="subcategoria_id" class="form-control" [(ngModel)] = "subcategoria_id" id="subcategoria-id">
+      <select
+        name="subcategoria_id"
+        class="form-control"
+        [(ngModel)] = "subcategoria_id"
+        id="subcategoria-id"
+        [disabled] = "is_disabled"
+      >
         <option value="">Selecionar sub categoria</option>
+        <option
+          *ngFor="let subcategoria of subcategorias"
+          [value]="subcategoria.indice"
+          [innerHTML]="subcategoria.nome"
+        ></option>
       </select>
     </div>
     <div class="text-center">
