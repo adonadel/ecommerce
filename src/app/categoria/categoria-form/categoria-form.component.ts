@@ -34,6 +34,8 @@ export class CategoriaFormComponent {
       document.querySelector('#nome')?.classList.add('has-errors');
       document.querySelector('#nome')?.setAttribute('tooltip', 'true');
       return;
+    }else {
+      document.querySelector('#nome')?.classList.remove('has-errors');
     }
 
     if(this.indice === '') {

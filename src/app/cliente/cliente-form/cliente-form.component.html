@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-between">
+    <h2>Cliente</h2>
+    <button class="btn btn-primary" routerLink="/cliente">Listar</button>
+</div>
+<form class="row g-3">
+    <div class="col-12">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" [(ngModel)] = "nome" name="nome">
+    </div>
+    <div class="col-12">
+        <label for="nome" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)] = "email" name="email">
+    </div>
+    <div class="col-12">
+        <label for="nome" class="form-label">CPF</label>
+        <input type="text" class="form-control" id="cpf" [(ngModel)] = "cpf" name="cpf">
+    </div>
+    <div class="col-12">
+        <label for="nome" class="form-label">Celular</label>
+        <input type="text" class="form-control" id="celular" [(ngModel)] = "celular" name="celular">
+    </div>
+    <div class="col-12">
+        <label for="nome" class="form-label">Data nascimento</label>
+        <input type="date" class="form-control" id="data_nasc" [(ngModel)] = "data_nasc" name="data_nasc">
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-success" (click)="salvar()">Salvar</button>
+    </div>
+</form>
