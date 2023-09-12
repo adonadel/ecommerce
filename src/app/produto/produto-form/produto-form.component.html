@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-between">
+    <h2>Produto</h2>
+    <button class="btn btn-primary" routerLink="/produto">Listar</button>
+</div>
+<form class="row g-3">
+    <div class="col-12">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" [(ngModel)] = "nome" name="nome">
+    </div>
+    <div class="col-12">
+        <label for="nome" class="form-label">Preço</label>
+        <input type="number" class="form-control" id="preco" [(ngModel)] = "preco" name="preco">
+    </div>
+    <div class="col-12">
+        <label for="nome" class="form-label">Nome</label>
+        <textarea class="form-control" id="descricao" [(ngModel)] = "descricao" name="descricao"></textarea>
+    </div>
+    <div class="col-12">
+      <label class="form-label" for="categoria-id">Categoria</label>
+      <select name="categoria_id" class="form-control" [(ngModel)] = "categoria_id" id="categoria-id">
+        <option value="">Selecionar categoria</option>
+      </select>
+    </div>
+    <div class="col-12">
+      <label class="form-label" for="subcategoria-id">Sub categoria</label>
+      <select name="subcategoria_id" class="form-control" [(ngModel)] = "subcategoria_id" id="subcategoria-id">
+        <option value="">Selecionar sub categoria</option>
+      </select>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-success" (click)="salvar()">Salvar</button>
+    </div>
+</form>

@@ -22,6 +22,9 @@ import { SubCategoriaFormComponent } from './sub-categoria/sub-categoria-form/su
 import { UsuarioComponent } from './usuario/usuario.component';
 import { UsuarioFormComponent } from './usuario/usuario-form/usuario-form.component';
 import { UsuarioListarComponent } from './usuario/usuario-listar/usuario-listar.component';
+import { ProdutoListarComponent } from './produto/produto-listar/produto-listar.component';
+import { ProdutoFormComponent } from './produto/produto-form/produto-form.component';
+import { ProdutoComponent } from './produto/produto.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { UsuarioListarComponent } from './usuario/usuario-listar/usuario-listar.
     SubCategoriaFormComponent,
     UsuarioComponent,
     UsuarioFormComponent,
-    UsuarioListarComponent
+    UsuarioListarComponent,
+    ProdutoListarComponent,
+    ProdutoFormComponent,
+    ProdutoComponent
   ],
   imports: [
     BrowserModule,
