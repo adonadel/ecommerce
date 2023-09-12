@@ -50,18 +50,22 @@ export class FormaPagamentoFormComponent {
   }
 
   ngOnInit(): void {
+    this.setLastId();
+  }
+
+  private setLastId() {
     this.formaPagamento_service.listar()
-    .on('value',(snapshot:any) => {
+      .on('value',(snapshot:any) => {
 
-      let response = snapshot.val();
+        let response = snapshot.val();
 
-      if (response == null) return;
-      Object.values( response )
-      .forEach(
-        (e:any,i:number) => {
-          this.nextId = e.id + 1;
-        }
-      );
-    });
+        if (response == null) return;
+        Object.values( response )
+        .forEach(
+          (e:any,i:number) => {
+            this.nextId = e.id + 1;
+          }
+        );
+      });
   }
 }

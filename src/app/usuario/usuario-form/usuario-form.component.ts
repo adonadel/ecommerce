@@ -59,19 +59,23 @@ export class UsuarioFormComponent {
   }
 
   ngOnInit(): void {
-    this.usuario_service.listar()
-    .on('value',(snapshot:any) => {
-
-      let response = snapshot.val();
-
-      if (response == null) return;
-      Object.values( response )
-      .forEach(
-        (e:any,i:number) => {
-          this.nextId = e.id + 1;
-        }
-      );
-    });
+    this.setLastId();
   }
 
+
+  private setLastId() {
+    this.usuario_service.listar()
+      .on('value',(snapshot:any) => {
+
+        let response = snapshot.val();
+
+        if (response == null) return;
+        Object.values( response )
+        .forEach(
+          (e:any,i:number) => {
+            this.nextId = e.id + 1;
+          }
+        );
+      });
+  }
 }

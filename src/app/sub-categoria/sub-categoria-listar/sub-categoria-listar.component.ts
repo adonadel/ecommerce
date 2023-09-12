@@ -30,16 +30,15 @@ export class SubCategoriaListarComponent implements OnInit{
 
       Object.values( response )
       .forEach(
-        (e:any,i:number) => {
-          this.setNomeCategoria(e.categoria_id);
+        async (e:any,i:number) => {
+          let categoria:any = await this.categoria_service.getByIndice(e.categoria_id);
 
           this.dados.push({
             id: e.id,
             nome: e.nome,
-            categoria: this.nomeCategoria,
+            categoria: categoria.nome,
             indice: Object.keys(snapshot.val())[i]
           });
-          this.nomeCategoria = '';
         }
       );
     });
@@ -53,16 +52,5 @@ export class SubCategoriaListarComponent implements OnInit{
 
   editar(key:string) {
     this.router.navigate(['/sub-categoria/editar/' + key]);
-  }
-
-  private setNomeCategoria(categoria_id:string) {
-    this.categoria_service.getByIndice(categoria_id)
-      .on('value',(snapshot:any) => {
-        let response = snapshot.val();
-
-        if (response == null) return;
-
-        this.nomeCategoria = response.nome;
-      });
   }
 }

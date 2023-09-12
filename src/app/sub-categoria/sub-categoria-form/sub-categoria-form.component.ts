@@ -13,6 +13,7 @@ export class SubCategoriaFormComponent {
   public indice:string = '';
   public nextId:number = 0;
   public categoria_id:string = '';
+  public categorias:Array<any> = [];
 
   constructor(
     public subCategoria_service:SubCategoriaService,
@@ -20,6 +21,7 @@ export class SubCategoriaFormComponent {
     public activated_route:ActivatedRoute,
     public router:Router
   ) {
+    this.preencheSelectCategorias();
     this.activated_route.params.subscribe((params:any) => {
       if(params.indice === undefined)
         return;
@@ -68,24 +70,23 @@ export class SubCategoriaFormComponent {
 
   ngOnInit(): void {
     this.setLastId();
-
-    this.preencheSelectCategorias();
   }
 
   private preencheSelectCategorias() {
     this.categoria_service.listar()
       .on('value', (snapshot:any) => {
         let response = snapshot.val();
-        let selectCategoria = document.querySelector("#categoria-id");
 
         if (response == null) return;
         Object.values( response )
           .forEach(
             (e:any, i:number) => {
-              let option = document.createElement('option');
-              option.value = Object.keys(snapshot.val())[i];
-              option.innerHTML = e.nome;
-              selectCategoria?.append(option);
+              let _indice = Object.keys(snapshot.val())[i];
+
+              this.categorias.push({
+                nome: e.nome,
+                indice: _indice
+              });
             }
           );
       });

@@ -29,4 +29,17 @@ export class SubCategoriaService {
   editar(dados:any, indice:string) {
     this.ref().child('/' + indice).update(dados).then();
   }
+
+  async getByIndice(indice:string){
+    let subcategoria:any;
+    await this.ref().orderByKey()
+    .equalTo(indice)
+    .once('value')
+    .then( function(snapshot) {
+      if (snapshot.exists()) {
+          subcategoria = Object.values(snapshot.val())[0];
+      }
+    });
+    return subcategoria;
+  }
 }

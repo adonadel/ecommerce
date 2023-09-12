@@ -13,6 +13,9 @@ import {SubCategoriaFormComponent} from "./sub-categoria/sub-categoria-form/sub-
 import {UsuarioComponent} from "./usuario/usuario.component";
 import {UsuarioListarComponent} from "./usuario/usuario-listar/usuario-listar.component";
 import {UsuarioFormComponent} from "./usuario/usuario-form/usuario-form.component";
+import {ProdutoComponent} from "./produto/produto.component";
+import {ProdutoListarComponent} from "./produto/produto-listar/produto-listar.component";
+import {ProdutoFormComponent} from "./produto/produto-form/produto-form.component";
 
 const routes: Routes = [
   {
@@ -115,6 +118,28 @@ const routes: Routes = [
       {
         path: 'editar/:indice',
         component: UsuarioFormComponent,
+      }
+    ]
+  },{
+    path: 'produto',
+    component: ProdutoComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'listar',
+        pathMatch: 'full'
+      },
+      {
+        path: 'listar',
+        component: ProdutoListarComponent
+      },
+      {
+        path: 'adicionar',
+        component: ProdutoFormComponent
+      },
+      {
+        path: 'editar/:indice',
+        component: ProdutoFormComponent,
       }
     ]
   },
