@@ -16,6 +16,9 @@
             </tr>
         </thead>
         <tbody>
+            <tr *ngIf="dados.length <= 0" class="table-warning text-center">
+                 <td colspan="6">Nenhum registro encontrado!</td>
+            </tr>
             <tr *ngFor="let produto of dados;">
                 <th scope="row">{{produto.id}}</th>
                 <td>{{produto.nome}}</td>

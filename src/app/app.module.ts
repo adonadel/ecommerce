@@ -25,6 +25,10 @@ import { UsuarioListarComponent } from './usuario/usuario-listar/usuario-listar.
 import { ProdutoListarComponent } from './produto/produto-listar/produto-listar.component';
 import { ProdutoFormComponent } from './produto/produto-form/produto-form.component';
 import { ProdutoComponent } from './produto/produto.component';
+import { ClienteComponent } from './cliente/cliente.component';
+import { ClienteFormComponent } from './cliente/cliente-form/cliente-form.component';
+import { ClienteListarComponent } from './cliente/cliente-listar/cliente-listar.component';
+import {NgxMaskDirective, NgxMaskPipe, provideNgxMask} from "ngx-mask";
 
 @NgModule({
   declarations: [
@@ -47,7 +51,10 @@ import { ProdutoComponent } from './produto/produto.component';
     UsuarioListarComponent,
     ProdutoListarComponent,
     ProdutoFormComponent,
-    ProdutoComponent
+    ProdutoComponent,
+    ClienteComponent,
+    ClienteFormComponent,
+    ClienteListarComponent
   ],
   imports: [
     BrowserModule,
@@ -62,9 +69,13 @@ import { ProdutoComponent } from './produto/produto.component';
       measurementId: "G-H9SE6Y623M"
     }),
     AngularFireStorageModule,
-    FormsModule
+    FormsModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
-  providers: [],
+  providers: [
+    provideNgxMask()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

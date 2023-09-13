@@ -1,6 +1,6 @@
 <div>
     <div class="d-flex justify-content-between mb-2">
-        <h2>Categorias</h2>
+        <h2>Clientes</h2>
         <button class="btn btn-success" routerLink="../adicionar">Novo</button>
     </div>
 
@@ -9,19 +9,21 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nome</th>
+                <th scope="col">Email</th>
                 <th scope="col">Editar</th>
                 <th scope="col">Excluir</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngIf="dados.length <= 0" class="table-warning text-center">
-                 <td colspan="4">Nenhum registro encontrado!</td>
+                 <td colspan="5">Nenhum registro encontrado!</td>
             </tr>
-            <tr *ngFor="let categoria of dados;">
-                <th scope="row">{{categoria.id}}</th>
-                <td>{{categoria.nome}}</td>
-                <td><i class="bx bxs-pencil" title="Editar" (click)="editar(categoria.indice)"></i></td>
-                <td><i class="bx bxs-trash" title="Excluir" (click)="excluir(categoria.indice, categoria.nome)"></i></td>
+            <tr *ngFor="let cliente of dados;">
+                <th scope="row">{{cliente.id}}</th>
+                <td>{{cliente.nome}}</td>
+                <td>{{cliente.email}}</td>
+                <td><i class="bx bxs-pencil" title="Editar" (click)="editar(cliente.indice)"></i></td>
+                <td><i class="bx bxs-trash" title="Excluir" (click)="excluir(cliente.indice, cliente.nome)"></i></td>
             </tr>
         </tbody>
     </table>

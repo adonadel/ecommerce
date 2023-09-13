@@ -1,22 +1,24 @@
 import { Component } from '@angular/core';
-import {UsuarioService} from "../usuario.service";
+import {ClienteService} from "../cliente.service";
 import {Router} from "@angular/router";
+import { IConfig } from 'ngx-mask';
 
 @Component({
-  selector: 'app-usuario-listar',
-  templateUrl: './usuario-listar.component.html',
-  styleUrls: ['./usuario-listar.component.scss']
+  selector: 'app-cliente-listar',
+  templateUrl: './cliente-listar.component.html',
+  styleUrls: ['./cliente-listar.component.scss']
 })
-export class UsuarioListarComponent {
+export class ClienteListarComponent {
   public dados:Array<any> = [];
 
   constructor(
-    public usuario_service:UsuarioService,
+    public clienteService:ClienteService,
     public router:Router
   ) { }
 
   ngOnInit(): void {
-    this.usuario_service.listar()
+
+    this.clienteService.listar()
     .on('value',(snapshot:any) => {
 
       this.dados.splice(0,this.dados.length);
@@ -32,7 +34,9 @@ export class UsuarioListarComponent {
             id: e.id,
             nome: e.nome,
             email: e.email,
-            password: e.password,
+            cpf: e.cpf,
+            data_nasc: e.data_nasc,
+            celular: e.celular,
             indice: Object.keys(snapshot.val())[i]
           });
         }
@@ -41,12 +45,12 @@ export class UsuarioListarComponent {
   }
 
   excluir(key:string, nome:string) {
-    if(confirm("Deseja realmente excluir o usuário \"" + nome + "\"?")) {
-      this.usuario_service.excluir(key);
+    if(confirm("Deseja realmente excluir o cliente \"" + nome + "\"?")) {
+      this.clienteService.excluir(key);
     }
   }
 
   editar(key:string) {
-    this.router.navigate(['/usuario/editar/' + key]);
+    this.router.navigate(['/cliente/editar/' + key]);
   }
 }

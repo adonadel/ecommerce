@@ -16,6 +16,9 @@ import {UsuarioFormComponent} from "./usuario/usuario-form/usuario-form.componen
 import {ProdutoComponent} from "./produto/produto.component";
 import {ProdutoListarComponent} from "./produto/produto-listar/produto-listar.component";
 import {ProdutoFormComponent} from "./produto/produto-form/produto-form.component";
+import {ClienteComponent} from "./cliente/cliente.component";
+import {ClienteListarComponent} from "./cliente/cliente-listar/cliente-listar.component";
+import {ClienteFormComponent} from "./cliente/cliente-form/cliente-form.component";
 
 const routes: Routes = [
   {
@@ -140,6 +143,28 @@ const routes: Routes = [
       {
         path: 'editar/:indice',
         component: ProdutoFormComponent,
+      }
+    ]
+  },{
+    path: 'cliente',
+    component: ClienteComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'listar',
+        pathMatch: 'full'
+      },
+      {
+        path: 'listar',
+        component: ClienteListarComponent
+      },
+      {
+        path: 'adicionar',
+        component: ClienteFormComponent
+      },
+      {
+        path: 'editar/:indice',
+        component: ClienteFormComponent
       }
     ]
   },

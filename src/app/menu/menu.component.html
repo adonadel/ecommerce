@@ -2,10 +2,24 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#administraco-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-grid"></i><span>Administração</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="administraco-nav" class="collapse" data-bs-parent="#sidebar-nav">
+
+          <li>
+            <a class="nav-link " href="/usuario">
+              <i class="bi bi-person-vcard"></i>
+              <span>Usuário</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#categoria-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-grid"></i><span>Mercadoria</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="categoria-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+        <ul id="categoria-nav" class="collapse" data-bs-parent="#sidebar-nav">
           <li>
             <a class="nav-link " href="/produto">
               <i class="bi bi-grid"></i>
@@ -31,7 +45,7 @@
         <a class="nav-link collapsed" data-bs-target="#financeiro-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-cash-coin"></i><span>Financeiro</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="financeiro-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+        <ul id="financeiro-nav" class="collapse" data-bs-parent="#sidebar-nav">
           <li>
             <a class="nav-link " href="/forma-pagamento">
               <i class="bi bi-cash-coin"></i>
@@ -40,11 +54,24 @@
           </li>
         </ul>
       </li>
-      <li>
-        <a class="nav-link " href="/usuario">
-          <i class="bi bi-person"></i>
-          <span>Usuário</span>
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#pessoal-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-person-gear"></i><span>Comercial</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
+        <ul id="pessoal-nav" class="collapse" data-bs-parent="#sidebar-nav">
+          <li>
+            <a class="nav-link " href="/usuario">
+              <i class="bi bi-person-vcard"></i>
+              <span>Usuário</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link " href="/cliente">
+              <i class="bi bi-person-dash"></i>
+              <span>Cliente</span>
+            </a>
+          </li>
+        </ul>
       </li>
 
     </ul>

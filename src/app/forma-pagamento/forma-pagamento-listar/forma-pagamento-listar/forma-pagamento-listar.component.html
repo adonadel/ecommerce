@@ -14,6 +14,9 @@
             </tr>
         </thead>
         <tbody>
+            <tr *ngIf="dados.length <= 0" class="table-warning text-center">
+                 <td colspan="4">Nenhum registro encontrado!</td>
+            </tr>
             <tr *ngFor="let formaPagamento of dados;">
                 <th scope="row">{{formaPagamento.id}}</th>
                 <td>{{formaPagamento.nome}}</td>
