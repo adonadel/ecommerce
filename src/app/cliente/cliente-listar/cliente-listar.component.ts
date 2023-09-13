@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ClienteService} from "../cliente.service";
 import {Router} from "@angular/router";
+import { IConfig } from 'ngx-mask';
 
 @Component({
   selector: 'app-cliente-listar',
@@ -16,6 +17,7 @@ export class ClienteListarComponent {
   ) { }
 
   ngOnInit(): void {
+
     this.clienteService.listar()
     .on('value',(snapshot:any) => {
 

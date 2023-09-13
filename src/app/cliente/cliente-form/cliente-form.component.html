@@ -2,7 +2,7 @@
     <h2>Cliente</h2>
     <button class="btn btn-primary" routerLink="/cliente">Listar</button>
 </div>
-<form class="row g-3">
+<form class="row g-3">g
     <div class="col-12">
         <label for="nome" class="form-label">Nome</label>
         <input type="text" class="form-control" id="nome" [(ngModel)] = "nome" name="nome">
@@ -13,11 +13,18 @@
     </div>
     <div class="col-12">
         <label for="nome" class="form-label">CPF</label>
-        <input type="text" class="form-control" id="cpf" [(ngModel)] = "cpf" name="cpf">
+        <input type="text" class="form-control" id="cpf" [(ngModel)] = "cpf" name="cpf" [mask]="setCpfMask()">
     </div>
     <div class="col-12">
         <label for="nome" class="form-label">Celular</label>
-        <input type="text" class="form-control" id="celular" [(ngModel)] = "celular" name="celular">
+        <input
+          type="text"
+          class="form-control"
+          id="celular"
+          [(ngModel)] = "celular"
+          name="celular"
+          [mask]="setCelularMask()"
+        >
     </div>
     <div class="col-12">
         <label for="nome" class="form-label">Data nascimento</label>
