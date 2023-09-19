@@ -1,22 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { CategoriaService } from '../categoria.service';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {EstadoService} from "../estado.service";
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-categoria-listar',
-  templateUrl: './categoria-listar.component.html',
-  styleUrls: ['./categoria-listar.component.scss']
+  selector: 'app-estado-listar',
+  templateUrl: './estado-listar.component.html',
+  styleUrls: ['./estado-listar.component.scss']
 })
-export class CategoriaListarComponent implements OnInit{
+export class EstadoListarComponent implements OnInit{
   public dados:Array<any> = [];
 
   constructor(
-    public categoria_service:CategoriaService,
+    public estadoService:EstadoService,
     public router:Router
   ) { }
 
   ngOnInit(): void {
-    this.categoria_service.listar()
+    this.estadoService.listar()
     .on('value',(snapshot:any) => {
 
       this.dados.splice(0,this.dados.length);
@@ -31,6 +31,7 @@ export class CategoriaListarComponent implements OnInit{
           this.dados.push({
             id: e.id,
             nome: e.nome,
+            uf: e.uf,
             indice: Object.keys(snapshot.val())[i]
           });
         }
@@ -39,12 +40,12 @@ export class CategoriaListarComponent implements OnInit{
   }
 
   excluir(key:string, nome:string) {
-    if(confirm("Deseja realmente excluir a categoria \"" + nome + "\"?")) {
-      this.categoria_service.excluir(key);
+    if(confirm("Deseja realmente excluir o estado \"" + nome + "\"?")) {
+      this.estadoService.excluir(key);
     }
   }
 
   editar(key:string) {
-    this.router.navigate(['/categoria/editar/' + key]);
+    this.router.navigate(['/estado/editar/' + key]);
   }
 }
