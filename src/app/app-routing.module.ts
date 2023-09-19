@@ -22,6 +22,9 @@ import {ClienteFormComponent} from "./cliente/cliente-form/cliente-form.componen
 import {EstadoComponent} from "./estado/estado.component";
 import {EstadoListarComponent} from "./estado/estado-listar/estado-listar.component";
 import {EstadoFormComponent} from "./estado/estado-form/estado-form.component";
+import {FornecedorComponent} from "./fornecedor/fornecedor.component";
+import {FornecedorListarComponent} from "./fornecedor/fornecedor-listar/fornecedor-listar.component";
+import {FornecedorFormComponent} from "./fornecedor/fornecedor-form/fornecedor-form.component";
 
 const routes: Routes = [
   {
@@ -191,6 +194,29 @@ const routes: Routes = [
       {
         path: 'editar/:indice',
         component: EstadoFormComponent,
+      }
+    ]
+  },
+  {
+    path: 'fornecedor',
+    component: FornecedorComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'listar',
+        pathMatch: 'full'
+      },
+      {
+        path: 'listar',
+        component: FornecedorListarComponent
+      },
+      {
+        path: 'adicionar',
+        component: FornecedorFormComponent
+      },
+      {
+        path: 'editar/:indice',
+        component: FornecedorFormComponent,
       }
     ]
   }

@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-between">
+    <h2>Fornecedor</h2>
+    <button class="btn btn-primary" routerLink="/fornecedor">Listar</button>
+</div>
+<form class="row g-3">
+  <div class="col-6">
+      <div class="col-12">
+          <label for="nome" class="form-label">Nome fantasia</label>
+          <input type="text" class="form-control" id="nome" [(ngModel)] = "nome" name="nome">
+      </div>
+      <div class="col-12">
+          <label for="razaoSocial" class="form-label">Razão social</label>
+          <input type="text" class="form-control" id="razaoSocial" [(ngModel)] = "razaoSocial" name="razaoSocial">
+      </div>
+      <div class="col-12">
+          <label for="cnpj" class="form-label">CNPJ</label>
+          <input type="text" class="form-control" id="cnpj" [(ngModel)] = "cnpj" name="cnpj" [mask]="setCnpjMask()">
+      </div>
+      <div class="col-12">
+          <label for="contato" class="form-label">Contato</label>
+          <input type="text" class="form-control" id="contato" [(ngModel)] = "contato" name="contato" [mask]="setContatoMask()">
+      </div>
+      <div class="col-12">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" [(ngModel)] = "email" name="email">
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="col-12">
+          <label for="logradouro" class="form-label">Logradouro (av, rua, beco...)</label>
+          <input type="logradouro" class="form-control" id="logradouro" [(ngModel)] = "logradouro" name="logradouro">
+      </div>
+      <div class="col-12">
+          <label for="complemento" class="form-label">Complemento</label>
+          <input type="complemento" class="form-control" id="complemento" [(ngModel)] = "complemento" name="complemento">
+      </div>
+      <div class="col-12">
+          <label for="bairro" class="form-label">Bairro</label>
+          <input type="bairro" class="form-control" id="bairro" [(ngModel)] = "bairro" name="bairro">
+      </div>
+      <div class="col-12">
+          <label for="cidade" class="form-label">Cidade</label>
+          <input type="cidade" class="form-control" id="cidade" [(ngModel)] = "cidade" name="cidade">
+      </div>
+      <div class="col-12">
+        <label class="form-label" for="estado-id">Estado</label>
+        <select name="estado_id" class="form-control" [(ngModel)] = "estado_id" id="estado-id">
+          <option value="">Selecionar estado</option>
+          <option
+            *ngFor="let estado of estados"
+            [value]="estado.indice"
+            [innerHTML]="estado.nome"
+          ></option>
+        </select>
+      </div>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-success" (click)="salvar()">Salvar</button>
+    </div>
+</form>
