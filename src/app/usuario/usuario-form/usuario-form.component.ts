@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {UsuarioService} from "../usuario.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
+
 @Component({
   selector: 'app-usuario-form',
   templateUrl: './usuario-form.component.html',
@@ -23,13 +24,13 @@ export class UsuarioFormComponent {
       if(params.indice === undefined)
         return;
 
-      this.usuario_service.ref().child('/' + params.indice).on('value', (snapshot:any) => {
-        let dado:any = snapshot.val();
-        this.indice = params.indice;
-        this.nome = dado.nome;
-        this.email = dado.email;
-        this.password = dado.password;
-      });
+      // this.usuario_service.ref().child('/' + params.indice).on('value', (snapshot:any) => {
+      //   let dado:any = snapshot.val();
+      //   this.indice = params.indice;
+      //   this.nome = dado.nome;
+      //   this.email = dado.email;
+      //   this.password = dado.password;
+      // });
     });
   }
 
@@ -39,6 +40,16 @@ export class UsuarioFormComponent {
       document.querySelector('#nome')?.setAttribute('tooltip', 'true');
       return;
     }
+    if(this.email == '') {
+      document.querySelector('#email')?.classList.add('has-errors');
+      document.querySelector('#email')?.setAttribute('tooltip', 'true');
+      return;
+    }
+    if(this.password == '') {
+      document.querySelector('#password')?.classList.add('has-errors');
+      document.querySelector('#password')?.setAttribute('tooltip', 'true');
+      return;
+    }
 
     if(this.indice === '') {
       this.usuario_service.salvar({
@@ -46,7 +57,7 @@ export class UsuarioFormComponent {
         nome : this.nome,
         email : this.email,
         password : this.password
-      })
+      }).subscribe();
     }else {
       let dados = {
         nome:this.nome,
@@ -64,18 +75,18 @@ export class UsuarioFormComponent {
 
 
   private setLastId() {
-    this.usuario_service.listar()
-      .on('value',(snapshot:any) => {
-
-        let response = snapshot.val();
-
-        if (response == null) return;
-        Object.values( response )
-        .forEach(
-          (e:any,i:number) => {
-            this.nextId = e.id + 1;
-          }
-        );
-      });
+    // this.usuario_service.listar()
+    //   .on('value',(snapshot:any) => {
+    //
+    //     let response = snapshot.val();
+    //
+    //     if (response == null) return;
+    //     Object.values( response )
+    //     .forEach(
+    //       (e:any,i:number) => {
+    //         this.nextId = e.id + 1;
+    //       }
+    //     );
+    //   });
   }
 }
