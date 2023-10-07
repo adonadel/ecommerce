@@ -35,6 +35,7 @@ import { EstadoFormComponent } from './estado/estado-form/estado-form.component'
 import { FornecedorComponent } from './fornecedor/fornecedor.component';
 import { FornecedorListarComponent } from './fornecedor/fornecedor-listar/fornecedor-listar.component';
 import { FornecedorFormComponent } from './fornecedor/fornecedor-form/fornecedor-form.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { FornecedorFormComponent } from './fornecedor/fornecedor-form/fornecedor
     AngularFireStorageModule,
     FormsModule,
     NgxMaskDirective,
-    NgxMaskPipe
+    NgxMaskPipe,
+    HttpClientModule
   ],
   providers: [
     provideNgxMask()
