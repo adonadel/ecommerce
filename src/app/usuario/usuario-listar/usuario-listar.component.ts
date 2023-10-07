@@ -17,27 +17,27 @@ export class UsuarioListarComponent {
 
   ngOnInit(): void {
     this.usuario_service.listar()
-    .on('value',(snapshot:any) => {
-
-      this.dados.splice(0,this.dados.length);
-
-      let response = snapshot.val();
-
-      if (response == null) return;
-
-      Object.values( response )
-      .forEach(
-        (e:any,i:number) => {
-          this.dados.push({
-            id: e.id,
-            nome: e.nome,
-            email: e.email,
-            password: e.password,
-            indice: Object.keys(snapshot.val())[i]
-          });
-        }
-      );
-    });
+    // .on('value',(snapshot:any) => {
+    //
+    //   this.dados.splice(0,this.dados.length);
+    //
+    //   let response = snapshot.val();
+    //
+    //   if (response == null) return;
+    //
+    //   Object.values( response )
+    //   .forEach(
+    //     (e:any,i:number) => {
+    //       this.dados.push({
+    //         id: e.id,
+    //         nome: e.nome,
+    //         email: e.email,
+    //         password: e.password,
+    //         indice: Object.keys(snapshot.val())[i]
+    //       });
+    //     }
+    //   );
+    // });
   }
 
   excluir(key:string, nome:string) {
