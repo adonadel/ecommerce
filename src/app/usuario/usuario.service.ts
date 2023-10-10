@@ -16,14 +16,18 @@ export class UsuarioService {
   }
 
   listar() {
-    return this.requisicaoService.get('usuario');
+    return this.requisicaoService.get('/usuario/listar');
   }
 
-  excluir(indice:string){
-    return this.requisicaoService.delete(indice, 'usuario');
+  excluir(id:number){
+    return this.requisicaoService.delete('/usuario/' + id);
   }
 
-  editar(fd: any, indice:string) {
-    return this.requisicaoService.put(fd, 'usuario');
+  editar(fd: any, id:number) {
+    return this.requisicaoService.put(fd, '/usuario/' + id);
+  }
+
+  getById(id:number) {
+    return this.requisicaoService.getById('/usuario/' + id);
   }
 }

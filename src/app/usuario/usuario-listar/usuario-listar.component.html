@@ -22,8 +22,8 @@
                 <th scope="row">{{usuario.id}}</th>
                 <td>{{usuario.nome}}</td>
                 <td>{{usuario.email}}</td>
-                <td><i class="bx bxs-pencil" title="Editar" (click)="editar(usuario.indice)"></i></td>
-                <td><i class="bx bxs-trash" title="Excluir" (click)="excluir(usuario.indice, usuario.nome)"></i></td>
+                <td><i class="bx bxs-pencil" title="Editar" (click)="editar(usuario.id )"></i></td>
+                <td><i class="bx bxs-trash" title="Excluir" (click)="excluir(usuario.id, usuario.nome)"></i></td>
             </tr>
         </tbody>
     </table>

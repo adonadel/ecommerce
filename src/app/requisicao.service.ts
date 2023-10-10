@@ -20,14 +20,18 @@ export class RequisicaoService {
   }
 
   put(formData: any, rota: string = '') {
-
+    return this.http.post(`http://localhost:8080/${rota}`, formData);
   }
 
-  delete(indice:string, rota: string) {
-
+  delete(rota: string) {
+    return this.http.get("http://localhost:8080" + rota);
   }
 
   get(rota: string) {
+    return this.http.get("http://localhost:8080" + rota);
+  }
 
+  getById(rota: string) {
+    return this.http.get("http://localhost:8080" + rota);
   }
 }
