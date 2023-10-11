@@ -57,11 +57,11 @@ export class UsuarioFormComponent {
     };
     let response = null;
     if(this.id === 0) {
-      response = this.usuario_service.salvar(dados).subscribe();
+      response = this.usuario_service.salvar(dados).subscribe()
     }else {
       response = this.usuario_service.editar(dados, this.id);
     }
-
+    console.log(response);
     // this.router.navigate(['/usuario']);
   }
 }

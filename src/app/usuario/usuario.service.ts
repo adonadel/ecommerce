@@ -12,22 +12,22 @@ export class UsuarioService {
   ) { }
 
   salvar(fd:any) {
-    return this.requisicaoService.post(fd, 'usuario');
+    return this.requisicaoService.post(fd, 'usuarios');
   }
 
   listar() {
-    return this.requisicaoService.get('/usuario/listar');
+    return this.requisicaoService.get('/usuarios/listar');
   }
 
   excluir(id:number){
-    return this.requisicaoService.delete('/usuario/' + id);
+    return this.requisicaoService.delete('/usuarios/' + id);
   }
 
   editar(fd: any, id:number) {
-    return this.requisicaoService.put(fd, '/usuario/' + id);
+    return this.requisicaoService.put(fd, '/usuarios/' + id);
   }
 
   getById(id:number) {
-    return this.requisicaoService.getById('/usuario/' + id);
+    return this.requisicaoService.getById('/usuarios/' + id);
   }
 }
