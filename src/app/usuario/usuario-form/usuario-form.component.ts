@@ -15,8 +15,8 @@ export class UsuarioFormComponent {
   public id:number = 0;
 
   constructor(
-    public usuario_service:UsuarioService,
-    public activated_route:ActivatedRoute,
+    private usuario_service:UsuarioService,
+    private activated_route:ActivatedRoute,
     public router:Router
   ) {
     this.activated_route.params.subscribe((params:any) => {
@@ -25,6 +25,7 @@ export class UsuarioFormComponent {
 
       this.usuario_service.getById(params.id).subscribe(
         (dados:any) => {
+          this.id = dados.id;
           this.nome = dados.nome;
           this.email = dados.email;
           this.password = dados.password;
@@ -56,12 +57,13 @@ export class UsuarioFormComponent {
       password : this.password
     };
     let response = null;
+
     if(this.id === 0) {
       response = this.usuario_service.salvar(dados).subscribe()
+      console.log(response);
     }else {
-      response = this.usuario_service.editar(dados, this.id);
+      response = this.usuario_service.editar(dados, this.id).subscribe();
     }
-    console.log(response);
     // this.router.navigate(['/usuario']);
   }
 }

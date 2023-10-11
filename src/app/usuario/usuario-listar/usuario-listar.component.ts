@@ -28,9 +28,10 @@ export class UsuarioListarComponent implements OnInit{
       )
   }
 
-  excluir(id:number, nome:string) {
+  excluir(_id:number, nome:string) {
     if(confirm("Deseja realmente excluir o usuário \"" + nome + "\"?")) {
-      this.usuario_service.excluir(id).subscribe(() => {
+      this.usuario_service.excluir(_id).subscribe((teste) => {
+        console.log(teste);
         this.listar();
       });
     }

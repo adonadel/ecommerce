@@ -12,15 +12,15 @@ export class UsuarioService {
   ) { }
 
   salvar(fd:any) {
-    return this.requisicaoService.post(fd, 'usuarios');
+    return this.requisicaoService.post(fd, '/usuarios');
   }
 
   listar() {
     return this.requisicaoService.get('/usuarios/listar');
   }
 
-  excluir(id:number){
-    return this.requisicaoService.delete('/usuarios/' + id);
+  excluir(_id:number){
+    return this.requisicaoService.delete('/usuarios/' + _id);
   }
 
   editar(fd: any, id:number) {
