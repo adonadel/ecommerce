@@ -16,18 +16,29 @@ export class RequisicaoService {
         'Content-type': 'application/json'
       })
     };
-    return this.http.post(`http://localhost:8080/${rota}`, formData, httpOptions);
+    return this.http.post("http://localhost:8080" + rota, formData, httpOptions);
   }
 
   put(formData: any, rota: string = '') {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin' : '*',
+        'Content-type': 'application/json'
+      })
+    };
 
+    return this.http.put("http://localhost:8080" + rota, formData, httpOptions);
   }
 
-  delete(indice:string, rota: string) {
-
+  delete(rota: string) {
+    return this.http.delete("http://localhost:8080" + rota);
   }
 
   get(rota: string) {
+    return this.http.get("http://localhost:8080" + rota);
+  }
 
+  getById(rota: string) {
+    return this.http.get("http://localhost:8080" + rota);
   }
 }

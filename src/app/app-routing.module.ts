@@ -125,7 +125,7 @@ const routes: Routes = [
         component: UsuarioFormComponent
       },
       {
-        path: 'editar/:indice',
+        path: 'editar/:id',
         component: UsuarioFormComponent,
       }
     ]

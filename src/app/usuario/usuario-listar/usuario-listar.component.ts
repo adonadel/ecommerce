@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {UsuarioService} from "../usuario.service";
 import {Router} from "@angular/router";
 
@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
   templateUrl: './usuario-listar.component.html',
   styleUrls: ['./usuario-listar.component.scss']
 })
-export class UsuarioListarComponent {
+export class UsuarioListarComponent implements OnInit{
   public dados:Array<any> = [];
 
   constructor(
@@ -16,33 +16,24 @@ export class UsuarioListarComponent {
   ) { }
 
   ngOnInit(): void {
-    this.usuario_service.listar()
-    // .on('value',(snapshot:any) => {
-    //
-    //   this.dados.splice(0,this.dados.length);
-    //
-    //   let response = snapshot.val();
-    //
-    //   if (response == null) return;
-    //
-    //   Object.values( response )
-    //   .forEach(
-    //     (e:any,i:number) => {
-    //       this.dados.push({
-    //         id: e.id,
-    //         nome: e.nome,
-    //         email: e.email,
-    //         password: e.password,
-    //         indice: Object.keys(snapshot.val())[i]
-    //       });
-    //     }
-    //   );
-    // });
+    this.listar();
   }
 
-  excluir(key:string, nome:string) {
+  listar(){
+    this.usuario_service.listar()
+      .subscribe(
+        (dados:any) => {
+          this.dados = dados;
+        }
+      )
+  }
+
+  excluir(_id:number, nome:string) {
     if(confirm("Deseja realmente excluir o usuário \"" + nome + "\"?")) {
-      this.usuario_service.excluir(key);
+      this.usuario_service.excluir(_id).subscribe((teste) => {
+        console.log(teste);
+        this.listar();
+      });
     }
   }
 
