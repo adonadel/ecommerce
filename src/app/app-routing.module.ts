@@ -25,6 +25,7 @@ import {EstadoFormComponent} from "./estado/estado-form/estado-form.component";
 import {FornecedorComponent} from "./fornecedor/fornecedor.component";
 import {FornecedorListarComponent} from "./fornecedor/fornecedor-listar/fornecedor-listar.component";
 import {FornecedorFormComponent} from "./fornecedor/fornecedor-form/fornecedor-form.component";
+import {AutenticacaoComponent} from "./autenticacao/autenticacao.component";
 
 const routes: Routes = [
   {
@@ -219,6 +220,9 @@ const routes: Routes = [
         component: FornecedorFormComponent,
       }
     ]
+  },
+  {
+    path:'login',component:AutenticacaoComponent
   }
 ];
 

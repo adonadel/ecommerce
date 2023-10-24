@@ -36,6 +36,7 @@ import { FornecedorComponent } from './fornecedor/fornecedor.component';
 import { FornecedorListarComponent } from './fornecedor/fornecedor-listar/fornecedor-listar.component';
 import { FornecedorFormComponent } from './fornecedor/fornecedor-form/fornecedor-form.component';
 import {HttpClientModule} from "@angular/common/http";
+import { AutenticacaoComponent } from './autenticacao/autenticacao.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import {HttpClientModule} from "@angular/common/http";
     EstadoFormComponent,
     FornecedorComponent,
     FornecedorListarComponent,
-    FornecedorFormComponent
+    FornecedorFormComponent,
+    AutenticacaoComponent
   ],
   imports: [
     BrowserModule,

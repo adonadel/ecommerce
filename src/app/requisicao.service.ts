@@ -34,8 +34,11 @@ export class RequisicaoService {
     return this.http.delete("http://localhost:8080" + rota);
   }
 
-  get(rota: string) {
-    return this.http.get("http://localhost:8080" + rota);
+  get(rota: string, params:any = {}) {
+    return this.http.get(
+      "http://localhost:8080" + rota, {
+        params: params
+    });
   }
 
   getById(rota: string) {
