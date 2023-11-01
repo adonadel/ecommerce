@@ -1,5 +1,8 @@
-<app-header></app-header>
-<app-menu></app-menu>
+<ng-container *ngIf="is_logged">
+  <app-header></app-header>
+  <app-menu></app-menu>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+</ng-container>
 <main id="main" class="main">
   <router-outlet></router-outlet>
 </main>

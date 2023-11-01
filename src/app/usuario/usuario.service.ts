@@ -30,4 +30,8 @@ export class UsuarioService {
   getById(id:number) {
     return this.requisicaoService.getById('/usuarios/' + id);
   }
+
+  pesquisar(termo: string) {
+    return this.requisicaoService.get('/usuarios/pesquisar/' + termo)
+  }
 }

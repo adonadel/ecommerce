@@ -3,7 +3,13 @@
         <h2>Usuários</h2>
         <button class="btn btn-success" routerLink="../adicionar">Novo</button>
     </div>
-
+    <form>
+      <fieldset>
+        <legend>Pesquisar</legend>
+        <input type="text" name="termo" [(ngModel)]="termo" >
+        <input type="button" value="Pesquisar" (click)="pesquisar()">
+      </fieldset>
+    </form>
     <table class="table table-striped">
         <thead>
             <tr>
