@@ -9,9 +9,10 @@ import {Router} from "@angular/router";
 })
 export class UsuarioListarComponent implements OnInit{
   public dados:Array<any> = [];
+  public termo:string = '';
 
   constructor(
-    public usuario_service:UsuarioService,
+    public usuarioService:UsuarioService,
     public router:Router
   ) { }
 
@@ -20,7 +21,7 @@ export class UsuarioListarComponent implements OnInit{
   }
 
   listar(){
-    this.usuario_service.listar()
+    this.usuarioService.listar()
       .subscribe(
         (dados:any) => {
           this.dados = dados;
@@ -30,7 +31,7 @@ export class UsuarioListarComponent implements OnInit{
 
   excluir(_id:number, nome:string) {
     if(confirm("Deseja realmente excluir o usuário \"" + nome + "\"?")) {
-      this.usuario_service.excluir(_id).subscribe((teste) => {
+      this.usuarioService.excluir(_id).subscribe((teste) => {
         console.log(teste);
         this.listar();
       });
@@ -39,5 +40,21 @@ export class UsuarioListarComponent implements OnInit{
 
   editar(key:string) {
     this.router.navigate(['/usuario/editar/' + key]);
+  }
+
+  pesquisar() {
+    let termo = this.termo;
+
+    if(termo == '') {
+      this.listar();
+      return;
+    }
+
+    this.usuarioService.pesquisar(termo)
+      .subscribe(
+        (dados:any) => {
+          this.dados = dados;
+        }
+      );
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AutenticacaoService } from './autenticacao.service';
 import { Router } from '@angular/router';
 
@@ -7,22 +7,23 @@ import { Router } from '@angular/router';
   templateUrl: './autenticacao.component.html',
   styleUrls: ['./autenticacao.component.scss']
 })
-export class AutenticacaoComponent {
+export class AutenticacaoComponent implements OnInit {
   public email:string = '';
   public password:string = '';
 
   constructor(
-    public autenticacao_service:AutenticacaoService,
+    public autenticacaoService:AutenticacaoService,
     public router:Router
   ){}
 
+  ngOnInit(): void {
+  }
   entrar(){
-    this.autenticacao_service.logar(this.email,this.password)
+    this.autenticacaoService.logar(this.email,this.password)
     .subscribe({
       next: (_res:any) => {
         sessionStorage.setItem('token',_res.token);
-        this.autenticacao_service.logon();
-        this.router.navigateByUrl('/home');
+        this.autenticacaoService.logon();
       },
       error: () => {
         console.log('Erro ...');

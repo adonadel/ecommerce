@@ -1,31 +1,29 @@
 import { Injectable } from '@angular/core';
-import {RequisicaoService} from "../requisicao.service";
+import { RequisicaoService } from '../requisicao.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticacaoService {
-
   public is_logged:boolean = false;
   constructor(
-    public requisicao_service:RequisicaoService
+    public requisicaoService:RequisicaoService
   ) {}
 
-  logar(usuario:string,password:string){
-    return this.requisicao_service.post({
+  logar(usuario:string,senha:string){
+    return this.requisicaoService.post({
       email:usuario,
-      password:password
-    },'auth');
+      senha:senha
+    },'/auth');
   }
 
   logon(){
     this.is_logged = true;
+    location.href = '/home';
   }
 
   verifyToken(){
-    return this.requisicao_service
-    .get('/auth/verifytoken',{
-      token:sessionStorage.getItem('token')
-    });
+    return this.requisicaoService
+    .get('/auth/verifytoken/' + sessionStorage.getItem('token'));
   }
 }
